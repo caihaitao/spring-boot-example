@@ -2,6 +2,7 @@ package org.sandbox.config;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
@@ -20,5 +21,11 @@ public class CustomInterceptor extends HandlerInterceptorAdapter {
         logger.info("#####Pre request interceptor ... #####");
 
         return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        logger.info("############# post request interceptor ...##########");
+        super.postHandle(request, response, handler, modelAndView);
     }
 }

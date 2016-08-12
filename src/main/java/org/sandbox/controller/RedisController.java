@@ -20,12 +20,12 @@ public class RedisController {
     private RedisService redisService;
 
     @RequestMapping(value = "redis", method = RequestMethod.GET)
-    public ResponseEntity<String> getValue(@RequestParam("key")String key) {
+    public ResponseEntity<String> getValue(@RequestParam("key") String key) {
         return new ResponseEntity<>(redisService.getValue(key), HttpStatus.OK);
     }
 
     @RequestMapping(value = "redis", method = RequestMethod.POST)
-    public ResponseEntity<String> setValue(@RequestParam("key")String key, @RequestParam("value")String value) {
+    public ResponseEntity<String> setValue(@RequestParam("key") String key, @RequestParam("value") String value) {
         redisService.setValue(key, value);
         return new ResponseEntity<>("set key/value successfully", HttpStatus.OK);
     }

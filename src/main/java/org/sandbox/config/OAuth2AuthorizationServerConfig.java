@@ -13,21 +13,21 @@ import javax.inject.Inject;
 @EnableAuthorizationServer
 public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
 
-	@Inject
+    @Inject
     private AuthenticationManager authenticationManager;
-	
-	@Override
-	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.authenticationManager(this.authenticationManager);
-	}
-	
-	@Override
-	public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-		clients.inMemory()
-				.withClient("oauthclient")
-				.secret("123456")
-				.authorizedGrantTypes("password")
-				.scopes("read", "write")
-				.resourceIds("OAuth2_Resources");
-	}
+
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.authenticationManager(this.authenticationManager);
+    }
+
+    @Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.inMemory()
+                .withClient("oauthclient")
+                .secret("123456")
+                .authorizedGrantTypes("password")
+                .scopes("read", "write")
+                .resourceIds("OAuth2_Resources");
+    }
 }

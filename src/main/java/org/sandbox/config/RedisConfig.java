@@ -14,8 +14,8 @@ import redis.clients.jedis.JedisPoolConfig;
 @Configuration
 public class RedisConfig {
     @Bean
-    public RedisConnectionFactory jedisConnectionFactory(){
-        JedisPoolConfig poolConfig=new JedisPoolConfig();
+    public RedisConnectionFactory jedisConnectionFactory() {
+        JedisPoolConfig poolConfig = new JedisPoolConfig();
         poolConfig.setMaxIdle(5);
         poolConfig.setMinIdle(1);
         poolConfig.setTestOnBorrow(true);

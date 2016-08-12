@@ -2,8 +2,6 @@ package org.sandbox.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -28,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     /**
      * Digest Authentication
-     * */
+     */
 
     @Bean
     public DigestAuthenticationEntryPoint digestEntryPoint() {
@@ -65,13 +63,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.exceptionHandling()
                 .authenticationEntryPoint(digestEntryPoint())
                 .and()
-            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-            .authorizeRequests()
+                .authorizeRequests()
                 .antMatchers("/demo/v1/persons/**", "/demo/mongo/customers/**").permitAll()
                 .antMatchers("/demo/security/**").authenticated()
                 .and()
-            .addFilterAfter(digestFilter(), BasicAuthenticationFilter.class)
+                .addFilterAfter(digestFilter(), BasicAuthenticationFilter.class)
                 .csrf().disable();
 //            .csrf().csrfTokenRepository(csrfTokenRepository());
     }
@@ -82,8 +80,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return super.authenticationManager();
     }
 
-    private CsrfTokenRepository csrfTokenRepository()
-    {
+    private CsrfTokenRepository csrfTokenRepository() {
         HttpSessionCsrfTokenRepository repository = new HttpSessionCsrfTokenRepository();
         repository.setSessionAttributeName("_csrf");
         return repository;

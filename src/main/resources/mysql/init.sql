@@ -1,7 +1,9 @@
-CREATE TABLE `persion` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(10) NOT NULL,
-  `age` int(11) NOT NULL,
-  `country` varchar(10) DEFAULT NULL,
+CREATE TABLE `person` (
+  `id`      INT(11)     NOT NULL AUTO_INCREMENT,
+  `name`    VARCHAR(10) NOT NULL,
+  `age`     INT(11)     NOT NULL,
+  `country` VARCHAR(10)          DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+)
+  ENGINE =InnoDB
+  DEFAULT CHARSET =utf8;

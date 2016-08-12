@@ -20,8 +20,8 @@ import java.net.URI;
 public class ExampleExceptionController {
 
     @RequestMapping(value = "exceptions/{id}", method = RequestMethod.GET)
-    public ResponseEntity<?> getException(@PathVariable("id")String id) {
-        if(id.equals("0"))
+    public ResponseEntity<?> getException(@PathVariable("id") String id) {
+        if (id.equals("0"))
             throw new CustomException("ha ha, got exception.");
 
         return new ResponseEntity<>("no exception.", null, HttpStatus.OK);

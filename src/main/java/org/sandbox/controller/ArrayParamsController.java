@@ -13,9 +13,9 @@ public class ArrayParamsController {
 
     @RequestMapping(method = RequestMethod.GET)
     @ResponseBody
-    public ResponseEntity<?> testArrayParam(@RequestParam("params")String[] params) {
+    public ResponseEntity<?> testArrayParam(@RequestParam("params") String[] params) {
 
-        for(int i = 0; i < params.length; i++) {
+        for (int i = 0; i < params.length; i++) {
             System.out.println(params[i]);
         }
 

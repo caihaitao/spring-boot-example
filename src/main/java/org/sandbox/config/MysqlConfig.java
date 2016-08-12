@@ -26,7 +26,7 @@ public class MysqlConfig {
         dataSource.setJdbcUrl("jdbc:mysql://127.0.0.1:3306/test?autoReconnect=true&useCompression=true" +
                 "&useUnicode=true&characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true");
         dataSource.setUser("root");
-        dataSource.setPassword("mysql");
+        dataSource.setPassword("123321");
         dataSource.setAcquireIncrement(10);
         dataSource.setIdleConnectionTestPeriod(60);
         dataSource.setMaxPoolSize(100);
@@ -45,7 +45,7 @@ public class MysqlConfig {
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        sessionFactory.setMapperLocations(new ClassPathResource[] {new ClassPathResource("mysql/PersonMapper.xml")});
+        sessionFactory.setMapperLocations(new ClassPathResource[]{new ClassPathResource("mysql/PersonMapper.xml")});
         return sessionFactory.getObject();
     }
 }

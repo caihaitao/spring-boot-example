@@ -1,12 +1,10 @@
 package org.sandbox.hateoas;
 
-import org.springframework.hateoas.ResourceSupport;
-
 /**
  * Author: zhangxin
  * Date:   15-9-18
  */
-public class Article extends ResourceSupport {
+public class Article{
     private String title;
     private String author;
     private String content;

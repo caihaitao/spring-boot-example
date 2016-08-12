@@ -32,7 +32,7 @@ public class CustomUrlRewriteFilter extends UrlRewriteFilter {
 
     @Override
     public void destroyUrlRewriter() {
-        if(urlRewriter != null)
+        if (urlRewriter != null)
             urlRewriter.destroy();
     }
 }

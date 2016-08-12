@@ -10,9 +10,7 @@ import org.sandbox.service.PersonService;
 import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 /**
  * Author: zhangxin
@@ -41,7 +39,7 @@ public class PersonServiceMockTest {
         Person rtnPerson = new Person();
         rtnPerson.setName("5");
         when(personService.select(5)).thenReturn(rtnPerson);
-        Person person = (Person)personController.getPerson(5);
+        Person person = (Person) personController.getPerson(5);
         verify(personService, times(1)).select(5);
         assertEquals("5", person.getName());
     }
@@ -55,7 +53,7 @@ public class PersonServiceMockTest {
         Person item = new Person();
         item.setName("5");
         when(personService.select(5)).thenReturn(item);
-        Person person = (Person)personController.getPerson(5);
+        Person person = (Person) personController.getPerson(5);
         verify(personService, times(1)).select(5);
         assertEquals("5", person.getName());
     }

@@ -13,8 +13,6 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Author: zhangxin
@@ -32,13 +30,13 @@ public class ControllerTest {
         HttpMessageConverter jacksonHttpMessageConverter = new MappingJackson2HttpMessageConverter();
 
         restTemplate.setMessageConverters(Arrays.asList(new HttpMessageConverter[]{formHttpMessageConverter,
-                                                                                   stringHttpMessageConverter,
-                                                                                   jacksonHttpMessageConverter}));
+                stringHttpMessageConverter,
+                jacksonHttpMessageConverter}));
     }
 
     @Test
     public void testGetPerson() {
-        ResponseEntity<Person> responseEntity = restTemplate.getForEntity(PREFIX_URI + "persons/6", Person.class);
+        ResponseEntity<Person> responseEntity = restTemplate.getForEntity(PREFIX_URI + "persons/1", Person.class);
         Person person = responseEntity.getBody();
         System.out.println(person);
     }

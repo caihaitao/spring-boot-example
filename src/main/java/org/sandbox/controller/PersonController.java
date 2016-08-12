@@ -35,9 +35,9 @@ public class PersonController {
     @RequestMapping(value = "persons", method = RequestMethod.POST)
     @ApiOperation(value = "POST API", notes = "Add new person by multiple params into database", response = String.class)
     @ApiResponses(value = {@ApiResponse(code = 500, message = "server error", response = ErrorDetail.class)})
-    public ResponseEntity<String> setPerson(@RequestParam("name")String name,
-                            @RequestParam("age")int age,
-                            @RequestParam("country")String country) {
+    public ResponseEntity<String> setPerson(@RequestParam("name") String name,
+                                            @RequestParam("age") int age,
+                                            @RequestParam("country") String country) {
         Person person = new Person();
         person.setName(name);
         person.setAge(age);

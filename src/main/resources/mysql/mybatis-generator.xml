@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="mybatis-demo" targetRuntime="MyBatis3" >
+    <context id="mybatis-demo" targetRuntime="MyBatis3">
 
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
 
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://192.168.134.15:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"
+                        connectionURL="jdbc:mysql://localhost:3306/test?autoReconnect=true&amp;useUnicode=true&amp;characterEncoding=utf8"
                         userId="root"
                         password="mysql">
         </jdbcConnection>
@@ -33,7 +33,7 @@
         </javaClientGenerator>
 
         <table tableName="person" schema="test">
-            <generatedKey column="id" sqlStatement="MySql" identity="true" />
+            <generatedKey column="id" sqlStatement="MySql" identity="true"/>
         </table>
 
     </context>

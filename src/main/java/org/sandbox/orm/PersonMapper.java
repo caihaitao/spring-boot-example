@@ -1,15 +1,8 @@
 package org.sandbox.orm;
 
+import org.apache.ibatis.annotations.*;
+
 import java.util.List;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.ResultMap;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.SelectKey;
-import org.apache.ibatis.annotations.Update;
-import org.sandbox.orm.Person;
-import org.sandbox.orm.PersonExample;
 
 public interface PersonMapper {
     int countByExample(PersonExample example);
@@ -17,18 +10,18 @@ public interface PersonMapper {
     int deleteByExample(PersonExample example);
 
     @Delete({
-        "delete from person",
-        "where id = #{id,jdbcType=INTEGER}"
+            "delete from person",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     int deleteByPrimaryKey(Integer id);
 
     @Insert({
-        "insert into person (name, age, ",
-        "country)",
-        "values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, ",
-        "#{country,jdbcType=VARCHAR})"
+            "insert into person (name, age, ",
+            "country)",
+            "values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, ",
+            "#{country,jdbcType=VARCHAR})"
     })
-    @SelectKey(statement="SELECT LAST_INSERT_ID()", keyProperty="id", before=false, resultType=Integer.class)
+    @SelectKey(statement = "SELECT LAST_INSERT_ID()", keyProperty = "id", before = false, resultType = Integer.class)
     int insert(Person record);
 
     int insertSelective(Person record);
@@ -36,10 +29,10 @@ public interface PersonMapper {
     List<Person> selectByExample(PersonExample example);
 
     @Select({
-        "select",
-        "id, name, age, country",
-        "from person",
-        "where id = #{id,jdbcType=INTEGER}"
+            "select",
+            "id, name, age, country",
+            "from person",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     @ResultMap("BaseResultMap")
     Person selectByPrimaryKey(Integer id);
@@ -51,11 +44,11 @@ public interface PersonMapper {
     int updateByPrimaryKeySelective(Person record);
 
     @Update({
-        "update person",
-        "set name = #{name,jdbcType=VARCHAR},",
-          "age = #{age,jdbcType=INTEGER},",
-          "country = #{country,jdbcType=VARCHAR}",
-        "where id = #{id,jdbcType=INTEGER}"
+            "update person",
+            "set name = #{name,jdbcType=VARCHAR},",
+            "age = #{age,jdbcType=INTEGER},",
+            "country = #{country,jdbcType=VARCHAR}",
+            "where id = #{id,jdbcType=INTEGER}"
     })
     int updateByPrimaryKey(Person record);
 }

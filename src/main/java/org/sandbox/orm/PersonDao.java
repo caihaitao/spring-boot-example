@@ -25,7 +25,7 @@ public class PersonDao extends SqlSessionDaoSupport {
         PersonExample.Criteria criteria = example.createCriteria();
         criteria.andIdEqualTo(id);
         List<Person> persons = personMapper.selectByExample(example);
-        if(persons != null && persons.size() > 0) {
+        if (persons != null && persons.size() > 0) {
             return persons.get(0);
         }
 

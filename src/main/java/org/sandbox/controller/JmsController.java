@@ -21,7 +21,7 @@ public class JmsController {
     private JmsProducerService jmsProducerService;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<?> sendMsg(@RequestParam("msg")String msg) {
+    public ResponseEntity<?> sendMsg(@RequestParam("msg") String msg) {
         jmsProducerService.sendMsg(msg);
         return new ResponseEntity<>(null, HttpStatus.OK);
     }
